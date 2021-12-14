@@ -6,7 +6,7 @@ import PlayerSvg from '../../assets/player.svg';
 import CalendarSvg from '../../assets/calendar.svg';
 import { styles } from "./style";
 
-import { GuildeIcon } from '../../components/GuildeIcon';
+import { GuildIcon } from '../GuildIcon';
 import { Categories } from "../../utils/categories";
 import { theme } from "../../global/styles/theme";
 
@@ -31,7 +31,7 @@ type Props = RectButtonProps & {
 }
 export function Appointment({data, ...rest}:Props){
   const [category] = Categories.filter(item => item.id === data.category); 
-  const { owner } = data.guild;
+  const { owmer } = data.guild;
   const { primary, on } = theme.color;
 
 
@@ -40,7 +40,7 @@ export function Appointment({data, ...rest}:Props){
     <RectButton {...rest}>
       <View  style={styles.container}>
         
-        <GuildeIcon/>
+        <GuildIcon/>
 
         <View style={styles.content}>            
           <View style={styles.header}> 
@@ -59,12 +59,12 @@ export function Appointment({data, ...rest}:Props){
             </View>
         
               <View style={styles.playersInfo}>
-                <PlayerSvg fill= { !owner ? primary : on }/>
+                <PlayerSvg fill= { owmer ? primary : on }/>
                 <Text style={[
                   styles.player, 
-                  { color: !owner ? primary : on} 
+                  { color: owmer ? primary : on} 
                 ]}>
-                  {owner ? 'Anfitrião' : 'Visitante'}
+                  {owmer ? 'Anfitrião' : 'Visitante'}
                 </Text>
               </View>
           </View>

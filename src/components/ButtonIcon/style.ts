@@ -19,6 +19,8 @@ export const styles = StyleSheet.create({
     color:theme.color.heading, 
     fontSize: 15,
     textAlign:"center",
+    fontFamily:theme.fonts.text500,
+
 
   },  
 
